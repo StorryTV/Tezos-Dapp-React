@@ -3,12 +3,12 @@ import { BeaconWallet } from "@taquito/beacon-wallet";
 
 export const wallet = new BeaconWallet({
   name: "Tezos Lottery Dapp",
-  preferredNetwork: "ithacanet",
+  preferredNetwork: "jakartanet",
 });
 
-// TODO 2.b - Setup connectWallet function (on ithacanet)
+// TODO 2.b - Setup connectWallet function (on jakartanet)
 export const connectWallet = async () => {
-  await wallet.requestPermissions({ network: { type: "ithacanet" } });
+  await wallet.requestPermissions({ network: { type: "jakartanet" } });
 };
 
 // TODO 2.c - Setup getAccount function
