@@ -1,12 +1,10 @@
-// TODO 2.a - Setup beacon wallet instance
 import { BeaconWallet } from "@taquito/beacon-wallet";
 
 export const wallet = new BeaconWallet({
-  name: "Tezos Lottery Dapp",
+  name: "StorryTV - Tezos Dapp",
   preferredNetwork: "mainnet",
 });
 
-// TODO 2.b - Setup connectWallet function (on jakartanet)
 export const connectWallet = async () => {
   await wallet.requestPermissions({ network: { type: "mainnet" } });
 };
