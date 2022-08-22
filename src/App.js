@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-
 import Navbar from "./components/Navbar";
-
-import { buyTicketOperation, endGameOperation } from "./utils/operation";
+import { buySTVOperation, sellSTVOperation } from "./utils/operation";
 import { fetchStorage } from "./utils/tzkt";
 
 const App = () => {
@@ -22,10 +20,10 @@ const App = () => {
   }, []);
 
   // TODO 7.a - Create onBuyTicket
-  const onBuyTicket = async () => {
+  const onBuySTV = async () => {
     try {
       setLoading(true);
-      await buyTicketOperation();
+      await buySTVOperation();
       alert("Transaction succesful!");
     } catch (err) {
       alert(err.message);
@@ -34,10 +32,10 @@ const App = () => {
   };
 
   // TODO 11.a - Create onEndGame
-  const onEndGame = async () => {
+  const onSellSTV = async () => {
     try {
       setLoading(true);
-      await endGameOperation();
+      await sellSTVOperation();
       alert("Transaction succesful!");
     } catch (err) {
       alert(err.message);
@@ -53,16 +51,16 @@ const App = () => {
         <div className="py-1">Tickets remaining: {tickets}</div>
         {/* Action Buttons */}
         {tickets > 0 ? (
-          <button onClick={onBuyTicket} className="btn btn-primary btn-lg">
-            {/* TODO 7.b - Call onBuyTicket on click */}
+          <button onClick={onBuySTV} className="btn btn-primary btn-lg">
+            {/* TODO 7.b - Call onBuySTV on click */}
             {/* TODO 7.c - Show "loading..." when buying operation is pending */}
-            {loading ? "Loading..." : "Buy Ticket"}
+            {loading ? "Loading..." : "Buy STV"}
           </button>
         ) : (
-          <button onClick={onEndGame} className="btn btn-success btn-lg">
-            {/* TODO 11.b - Call onEndGame on click */}
+          <button onClick={onSellSTV} className="btn btn-success btn-lg">
+            {/* TODO 11.b - Call onSellSTV on click */}
             {/* TODO 11.c - Show "loading..." when buying operation is pending */}
-            {loading ? "Loading..." : "End Game"}
+            {loading ? "Loading..." : "Sell STV"}
           </button>
         )}
         {/* List of Players */}
