@@ -5,8 +5,8 @@ export const buyTicketOperation = async () => {
   try {
     const contractInstance = await tezos.wallet.at("KT1EDKhwYY9h8UuoxN6KpexoCT8xoaTRVAzv");
     const op = await contractInstance.methods.tezToTokenPayment().send({
-      amount: 1,
-      mutez: false,
+      amount: 10000,
+      mutez: true,
     });
     await op.confirmation(1);
   } catch (err) {
